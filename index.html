@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="./Styles/test_style.css">
+</head>
+
+<body>
+
+  <div class="mainMenu">
+    <div class="titleMainMenu">
+      <p class="textTitle">
+        To Do List
+      </p>
+    </div>
+    <input class='buttonsRightCreateTask' type="submit" value="Добавить задачу" id="add">
+    <table class='taskList' id="list" lang="ru">
+    </table>
+  </div>
+  <p>
+  <div class='inputForm' id="inputForm">
+    <b class="titleAddTask">
+      <p class="titleAddTaskText">Добавление задачи</p>
+    </b>
+    <p>
+    <table>
+      <tbody>
+        <tr>
+          <td>Название: </td>
+          <td>
+            <input class='inputTitle' name="title" size='40' type="text" id="title" />
+          </td>
+        </tr>
+        <tr>
+          <td>Описание задачи:</td>
+          <td>
+            <textarea name="comment" cols="40" rows="3" id="comment"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Дата выполнения:</td>
+          <td>
+            <input name="deadline" type="date" id="date" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </p>
+    <p class="buttonsRightFormAddTask">
+      <input type="reset" value="Отмена" id="cancel">
+      <input type="submit" value="Создать задачу" id="create">
+    </p>
+  </div>
+  </p>
+</body>
+
+</html>
