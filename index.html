@@ -56,6 +56,37 @@
     </p>
   </div>
   </p>
+
+  <div class="redactTaskWindow">
+    <p class="titleRedactTask"><b class="titleRedactTaskText">Редактирование задачи</b>
+    <table>
+      <tbody>
+        <tr>
+          <td>Название: </td>
+          <td>
+            <input class='inputTitle' name="title" size='40' type="text" id="titleRedact" />
+          </td>
+        </tr>
+        <tr>
+          <td>Описание задачи:</td>
+          <td>
+            <textarea name="comment" cols="40" rows="3" id="commentRedact"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Дата выполнения:</td>
+          <td>
+            <input name="deadline" type="date" id="dateRedact" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="buttonsRedactTask">
+      <input type="reset" value="Отмена" id="cancelRedact">
+      <input type="submit" value="Сохранить изменения" id="save">
+    </p>
+    </p>
+  </div>
 </body>
 
 </html>

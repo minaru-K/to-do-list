@@ -11,7 +11,8 @@
   bottom: 0px;
   z-index: 1000;
   background-repeat: space;
-  overflow: auto; /* Этот параметр и высота необходимы для продолжения фона при прокрутке*/
+  overflow: auto;
+  /* Этот параметр и высота необходимы для продолжения фона при прокрутке*/
   height: 100%;
 }
 
@@ -20,7 +21,7 @@
   top: 0px;
   left: 0px;
   height: 10%;
-  width: 100%;
+  width: 98.9%;
   text-align: center;
   z-index: 1001;
   background: rgb(126, 223, 255);
@@ -31,8 +32,10 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  left: 45%;
+  left: 45.229%;
+  width: 9.541%;
   font-size: 25pt;
+  font-size: 200%;
   margin-top: 1.5%;
 }
 
@@ -59,25 +62,29 @@
   position: absolute;
   justify-content: center;
   padding-top: 8%;
-  left: 30%;
-  right: 30%;
-  width: 40%;
+  left: 30.047%;
+  /* right: 30%; */
+  width: 39.905%;
   z-index: 999;
   display: table-row-group;
   table-layout: fixed;
-  overflow-wrap: break-word; /* Надо поиграться с параметрами, чтобы настроить перенос слов без пробелов на следующую строку */
+  overflow-wrap: break-word;
+  /* Надо поиграться с параметрами, чтобы настроить перенос слов без пробелов на следующую строку */
+  text-overflow: clip;
   /* word-break: break-all; */
-    /* word-break: break-all  */
+  /* word-break: break-all  */
   /* hyphens: auto; */
   /* white-space: normal; */
   /* box-sizing: border-box; */
 }
 
 .listTBody {
+  /* -webkit-box-sizing: border-box; */
   display: block;
   border: 2px dotted black;
   border-collapse: separate;
   border-spacing: 4px;
+  /* width: 30%; */
 }
 
 .buttonsStateDelete input {
@@ -92,7 +99,7 @@
 
 .inputForm {
   z-index: 0;
-  padding: 50px;
+  padding: 2.7%;
   border-radius: 25px;
   background: rgb(126, 223, 255);
   position: fixed;
@@ -138,4 +145,52 @@ textarea {
   width: 90.5%;
   height: 20%;
   resize: none;
+}
+
+/* ==================Стиль для формы редактирования задачи============== */
+
+.redactTaskWindow {
+  z-index: 0;
+  padding: 3%;
+  border-radius: 25px;
+  background: rgb(126, 223, 255);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+}
+
+.titleRedactTask {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  block-size: 200px;
+  height: 50px;
+  width: 100%;
+  border-radius: 25px 25px 0px 0px;
+  background: rgb(255, 125, 218);
+}
+
+.titleRedactTaskText {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.buttonsRedactTask input {
+  position: relative;
+  left: 50%;
+  background-color: rgb(255, 125, 218);
+  border-radius: 25px;
+  cursor: pointer;
 }

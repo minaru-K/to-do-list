@@ -19,7 +19,7 @@ const createBtn = document.getElementById("create");
 const cancelBtn = document.getElementById("cancel");
 const addBtn = document.getElementById("add");
 const inputForm = document.getElementById("inputForm");
-
+let indexEvent; // Для хранения индекса родительского при нажатии кнопки Редактировать
 // Не путать taskList (массив, хранящий задачи) и listTask - список элементов HTML
 const taskList = [
   {
@@ -152,7 +152,6 @@ renderTasks(taskList);
 
 function renderTasks(arrTask) {
   listTask.innerHTML = "";
-  //console.log("Массив", arrTask);
   if (arrTask.length !== 0) {
     for (let i in arrTask) {
       listTask.insertAdjacentHTML("beforeend", getTaskList(arrTask[i], i));
@@ -185,7 +184,8 @@ function getTaskList(arrTask, index) {
     <td>Статуc: ${arrTask.state === false ? "Не выполнено" : "Выполнено"}</td>
   </tr>
    <tr><td class="buttonsStateDelete"><input type="submit" data-index="${index}" value="Выполнено">
-  <input type="reset" data-index="${index}" value="Удалить"></td></tr>
+  <input type="reset" data-index="${index}" value="Удалить">
+  <input type="button" data-index="${index}" value="Редактировать"></td></tr>
   </tbody> <br>`;
   // `<li>${
   //   arrTask.state === true ? document.getElementsByClassName("taskList")[0].style = "text-decoration: line-through;" :  document.getElementsByClassName("taskList")[0].style = "text-decoration: '';"
@@ -225,9 +225,32 @@ listTask.onclick = function (event) {
       taskList[index].state = !taskList[index].state;
     } else if (type === "reset") {
       taskList.splice(index, 1);
+    } else if (type === "button") {
+      redactTask(index);
+      indexEvent = index;
     }
     renderTasks(taskList);
   }
+};
+
+function redactTask(index) {
+  document.getElementsByClassName("redactTaskWindow")[0].style =
+    "z-index: 3000";
+  document.getElementById("titleRedact").value = taskList[index].title;
+  document.getElementById("commentRedact").value = taskList[index].comment;
+  document.getElementById("dateRedact").value = taskList[index].date;
+}
+
+document.getElementById("cancelRedact").onclick = () => {
+  document.getElementsByClassName("redactTaskWindow")[0].style = "z-index: 0";
+};
+
+document.getElementById("save").onclick = (event) => {
+  taskList[indexEvent].title = document.getElementById("titleRedact").value;
+  taskList[indexEvent].comment = document.getElementById("commentRedact").value;
+  taskList[indexEvent].date = document.getElementById("dateRedact").value;
+  document.getElementsByClassName("redactTaskWindow")[0].style = "z-index: 0";
+  renderTasks(taskList);
 };
 
 cancelBtn.onclick = () => {
